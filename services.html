@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arella Praveen Kumar</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .scale{
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+    .scale:hover{
+        transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+
+    }
+    @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+  </style>
+</head>
+<body>
+  <div style="background-color: rgba(0,0,0,0.6); position: relative; height: auto; margin-left: 150px; margin-right: 150px; margin-top: 100px;">
+    <div style="position: sticky; top: 10px; z-index: 1000; opacity: 1;">
+      <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px; display: none; margin-top: 20px;">
+        <a href="home.html" target="_self" class="nav" style="left: 300px;" id="home">About</a>
+        <a href="services.html" class="nav" style="left: 500px;" id="services">services</a>
+        <a href="project.html" class="nav" style="left: 500px;" id="project">Projects</a>
+        
+        <a href="contact.html" class="nav" style="left: 700px;" id="contact">Contact</a>
+      </div>
+      <div style="margin-left: 1150px; opacity: 1;">
+        <img id="icon" src="icon.jpg" onclick="toggleMenu()" style="cursor: pointer; margin-top: 20px;">
+      </div>
+    </div>
+    
+    <div style="margin-top: 20px; animation: fadeIn 1s ease-in-out;">
+        <h2 style="color: aqua; text-align: center; text-transform: uppercase; margin-bottom: 20px;">Services</h2><br>
+        <div  style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+          <div class="scale" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; width: 200px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="mobile.png" alt="Website and Platform Design" style="width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto 10px;">
+            <h3 style="color: #FFD700; text-align: center; font-size: 1.1rem;">Website &amp; Platform Design</h3>
+          </div>
+          <div class="scale" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; width: 200px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="user-interface.png" alt="Mobile Application" style="width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto 10px;">
+            <h3 style="color: #FFD700; text-align: center; font-size: 1.1rem;">Mobile Application</h3>
+          </div>
+          <div class="scale" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; width: 200px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="search-engine-optimization.png" alt="SEO Optimization" style="width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto 10px;">
+            <h3 style="color: #FFD700; text-align: center; font-size: 1.1rem;">SEO Optimization</h3>
+          </div>
+          <div class="scale" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; width: 200px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="social-media.png" alt="Social Media Management" style="width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto 10px;">
+            <h3 style="color: #FFD700; text-align: center; font-size: 1.1rem;">Social Media Management</h3>
+          </div>
+          <div class="scale" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; width: 200px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="photo_white.png" alt="Product Photography" style="width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto 10px;">
+            <h3 style="color: #FFD700; text-align: center; font-size: 1.1rem;">Product Photography</h3>
+          </div>
+          <div class="scale" style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; width: 200px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="game-development.png" alt="Game Design" style="width: 80px; height: 80px; object-fit: contain; display: block; margin: 0 auto 10px;">
+            <h3 style="color: #FFD700; text-align: center; font-size: 1.1rem;">Game Design</h3>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      let menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+    }
+    const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
+    let index = 0;
+    function changeWord() {
+      index = (index + 1) % words.length;
+      document.getElementById("changing-word").textContent = words[index];
+    }
+    setInterval(changeWord, 2000);
+    let currentPage = window.location.pathname.split("/").pop();
+    currentPage = currentPage.replace(".html", "");
+    if (currentPage) {
+      document.getElementById(currentPage).style.textDecoration = "underline";
+      document.getElementById(currentPage).style.color = "aqua";
+    }
+    
+  </script>
+
+  
+</body>
+</html>
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arella Praveen Kumar</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <style>
+        
+        .projects-container {
+            text-align: center;
+            padding: 50px 0;
+            color: white;
+        }
+        .projects-container h1 {
+            color: aqua;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .projects-grid {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 80%; 
+            max-width: 600px;
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: fadeInUp 0.8s ease-in-out;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .project-content {
+            padding: 15px;
+            text-align: left;
+        }
+        .project-title {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+        .project-description {
+            font-size: 1rem;
+            color: #ddd;
+            line-height: 1.4;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: rgba(0,0,0,0.6); position: relative; height: auto; margin-left: 150px; margin-right: 150px; margin-top: 100px; padding-bottom: 50px;">
+ 
+       <div style="position: sticky; top: 10px; z-index: 1000; opacity: 1;">
+          
+           <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px; display: none; margin-top: 20px;">
+               <a href="home.html" target="_self" class="nav" style="left: 300px;" id="home">About</a>
+               <a href="services.html" class="nav" style="left: 500px;" id="services">services</a>
+               <a href="project.html" class="nav" style="left: 500px;" id="project">Projects</a>
+               <a href="contact.html" class="nav" style="left: 700px;" id="contact">Contact</a>
+           </div>
+          
+           <div style="margin-left: 1150px; opacity: 1;">
+               <img id="icon" src="icon.jpg" onclick="toggleMenu()" style="cursor: pointer; margin-top: 20px;">
+           </div>
+       </div>
+ 
+       <div class="projects-container">
+           <h1>Projects</h1>
+           <br>
+           <div class="projects-grid">
+               
+               <div class="project-card">
+                   <img src="hostel.png" alt="Hostel Room Registration" style="height: 100%;">
+                   <div class="project-content">
+                       <h2 class="project-title">Hostel Room Registration</h2>
+                       <p class="project-description">
+                           A C++ project for hostel booking with user authentication, room selection, and OTP verification.<br><br>
+                           <strong>Technologies:</strong> C++, File I/O, OOP<br>
+                           <strong>Key Features:</strong> Secure OTP, Real-time room availability.
+                       </p>
+                   </div>
+               </div>
+               <br>
+ 
+               
+               <div class="project-card">
+                   <img src="webdevelopment.png" alt="Website Registration System" style="height: 100%;">
+                   <div class="project-content">
+                       <h2 class="project-title">Website Registration System</h2>
+                       <p class="project-description">
+                           Built a user registration system using MySQL, HTML, and PHP, storing data securely in a database.<br><br>
+                           <strong>Technologies:</strong> PHP, MySQL, HTML/CSS<br>
+                           <strong>Key Features:</strong> Responsive design, secure data handling.
+                       </p>
+                   </div>
+               </div>
+               <br>
+ 
+               
+               <div class="project-card">
+                   <img src="train.png" alt="Train Ticket Reservation System" style="height: 100%;">
+                   <div class="project-content">
+                       <h2 class="project-title">Train Ticket Reservation</h2>
+                       <p class="project-description">
+                           Developed in C, this system handles ticket bookings, cancellations, and real-time seat availability tracking.<br><br>
+                           <strong>Technologies:</strong> C, Data Structures, File Handling<br>
+                           <strong>Key Features:</strong> Efficient booking, dynamic seat tracking.
+                       </p>
+                   </div>
+               </div>
+           </div>
+       </div>
+ 
+    </div>
+ 
+    <script>
+       function toggleMenu() {
+           let menu = document.getElementById("menu");
+           menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+       }
+       const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
+       let index = 0;
+       function changeWord() {
+           index = (index + 1) % words.length;
+           document.getElementById("changing-word").textContent = words[index];
+       }
+       setInterval(changeWord, 2000);
+       let currentPage = window.location.pathname.split("/").pop();
+       
+       currentPage = currentPage.replace(".html", "");
+       
+       if (currentPage) {
+           document.getElementById(currentPage).style.textDecoration = "underline";
+           document.getElementById(currentPage).style.color = "aqua";
+       }
+    </script>
+</body>
+</html>

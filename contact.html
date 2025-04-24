@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arella Praveen Kumar</title>
+  <link rel="stylesheet" href="portfolio.css">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    
+    .contact-container {
+      text-align: center;
+      padding: 50px 20px;
+      color: white;
+      margin-top: 30px;
+      border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .contact-container h2 {
+      color: aqua;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .contact-details div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+    }
+    .contact-details div i {
+      font-size: 1.5rem;
+      color: #FFD700;
+      transition: transform 0.3s ease;
+    }
+    .contact-details div:hover i {
+      transform: scale(1.2);
+    }
+    .contact-details a {
+      color: #FFD700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .contact-details a:hover {
+      color: #00A896;
+    }
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact-form input, 
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+    .contact-form button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #FFD700;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #FFC107;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: rgba(0,0,0,0.6); position: relative; height: auto; margin-left: 150px; margin-right: 150px; margin-top: 100px;">
+    <div style="position: sticky; top: 10px; z-index: 1000; opacity: 1;">
+     
+      <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px; display: none; margin-top: 20px;">
+        <a href="home.html" target="_self" class="nav" style="left: 300px;" id="home">About</a>
+        <a href="services.html" class="nav" style="left: 500px;" id="services">services</a>
+        <a href="project.html" class="nav" style="left: 500px;" id="project">Projects</a>
+        <a href="contact.html" class="nav" style="left: 700px;" id="contact">Contact</a>
+      </div>
+      
+      <div style="margin-left: 1150px; opacity: 1;">
+        <img id="icon" src="icon.jpg" onclick="toggleMenu()" style="cursor: pointer; margin-top: 20px;">
+      </div>
+    </div>
+    <div class="contact-container">
+        <h2>Contact Me</h2><br>
+        <div class="contact-details">
+          <div>
+            <i class="fas fa-envelope"></i>
+            <span>arellapraveen4@gmail.com</span>
+          </div>
+          <div>
+            <i class="fas fa-phone"></i>
+            <span>+91-7729067783</span>
+          </div>
+          <div>
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/praveen-kumar-arella-059a75303/" target="_blank">LinkedIn</a>
+          </div>
+          <div>
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/arellapraveen4" target="_blank">GitHub</a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div> 
+  </div>
+
+  <script>
+    function toggleMenu() {
+      let menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+    }
+    const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
+    let index = 0;
+    function changeWord() {
+      index = (index + 1) % words.length;
+      document.getElementById("changing-word").textContent = words[index];
+    }
+    setInterval(changeWord, 2000);
+    let currentPage = window.location.pathname.split("/").pop();
+    
+    currentPage = currentPage.replace(".html", "");
+    
+    if (currentPage) {
+      document.getElementById(currentPage).style.textDecoration = "underline";
+      document.getElementById(currentPage).style.color = "aqua";
+    }
+  </script>
+
+  
+  
+</body>
+</html>

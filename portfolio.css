@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    background-image: url("back6.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    animation: fadeInPage 2s ease forwards;
+}
+
+.img1 {
+    position: relative;
+    top: 20px;
+    width: 300px;
+    height: 350px;
+    margin-left: 50px;
+    margin-top: 40px;
+    border: 3px solid #FFD700;
+    border-radius: 0 100px;
+    float: left;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.img1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+body img {
+    height: 100px;
+}
+
+#icon {
+    width: 50px;
+    height: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+#icon:hover {
+    background-color: #FFD700;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+.parentdivs {
+    background-color: rgba(20, 20, 20, 0.9);
+    position: relative;
+    height: 1500px;
+    margin: 100px 150px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+#menu {
+    background-color: #002244;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.nav {
+    text-decoration: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin: 0 20px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.nav:hover {
+    color: #FFD700;
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.hello {
+    position: relative;
+    height: 150px;
+    width: 840px;
+    margin-left: 354px;
+    top: 39px;
+}
+
+.hello h2 {
+    font-size: 24px;
+    color: #FFD700;
+}
+
+.hello h1 {
+    font-size: 36px;
+    text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.5);
+}
+
+#changing-word {
+    color: #00A896;
+    font-weight: bold;
+    animation: fadeIn 1.5s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+.Contacts {
+    width: 840px;
+    height: 175px;
+    position: relative;
+    margin-left: 354px;
+}
+
+.Contacts a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-right: 50px;
+    transition: color 0.3s ease-in-out;
+}
+
+.Contacts a:hover {
+    color: #00A896;
+    text-decoration: underline;
+}
+
+li {
+    color: white;
+    list-style: none;
+    transition: color 0.3s ease-in-out;
+}
+
+li:hover {
+    color: #FFD700;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #002244;
+    margin-top: 50px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}

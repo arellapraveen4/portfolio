@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arella Praveen Kumar</title>
+  <link rel="stylesheet" href="portfolio.css">
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    .container {
+      width: 80%;
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      background: rgba(20, 20, 20, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    header {
+      text-align: center;
+      padding: 20px;
+      border-bottom: 2px solid #FFD700;
+      transition: all 0.3s ease;
+    }
+    header h1:hover {
+      text-shadow: 0 0 10px #FFD700;
+    }
+    .subtitle {
+      color: #FFD700;
+      font-size: 1.2em;
+    }
+    .contact-info a {
+      display: inline-block;
+      margin: 10px;
+      color: #FFD700;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+    .contact-info a:hover {
+      color: #00A896;
+    }
+    .download-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #FFD700;
+      color: #121212;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .download-btn:hover {
+      background: #FFC107;
+    }
+    
+    section {
+      margin: 30px 0;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+      animation: slideUp 1.2s ease-in-out;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    h2 {
+      color: #FFD700;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #FFD700;
+      color: #121212;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    button:hover {
+      background: #FFC107;
+      transform: scale(1.05);
+    }
+   
+    .resume-section h3 {
+      color: #FFD700;
+      margin-top: 20px;
+    }
+    .resume-section p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div style="background-color: rgba(0,0,0,0.6); position: relative; height: 1300px; margin-left: 150px; margin-right: 150px; margin-top: 100px;">
+    <div style="position: sticky; top: 10px; z-index: 1000; opacity: 1;">
+      
+      <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px; display: none; margin-top: 20px;">
+         <a href="home.html" target="_self" class="nav" style="left: 300px;" id="home">About</a>
+         <a href="resume_port.html" class="nav" style="left: 500px;" id="resume_port">Projects</a>
+         <a href="contact.html" class="nav" style="left: 700px;" id="contact">Contact</a>
+      </div>
+      
+      <div style="margin-left: 1150px; opacity: 1;">
+         <img id="icon" src="icon.jpg" onclick="toggleMenu()" style="cursor: pointer; margin-top: 20px;">
+      </div>
+      
+      <div class="container resume-section">
+        <header>
+          <h1>Arella Praveen Kumar</h1>
+          <p class="subtitle">Aspiring Computer Science and Engineering Student</p>
+        </header>
+        <section>
+          <h2>Contact Information</h2>
+          <p><strong>Email:</strong> arellapraveen4@gmail.com</p>
+          <p><strong>Phone:</strong> +91-7729067783</p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/praveen-kumar-arella-059a75303/" target="_blank">Visit Profile</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/arellapraveen4" target="_blank">Visit Profile</a></p>
+          <p><strong>Location:</strong> Hyderabad, India</p>
+        </section>
+        <section>
+          <h2>Objective</h2>
+          <p>Aspiring Computer Science and Engineering student with a strong foundation in programming, seeking opportunities to enhance my technical skills and contribute to innovative projects in software development.</p>
+        </section>
+        <section>
+          <h2>Education</h2>
+          <p>
+            <strong>SRM Institute of Science and Technology</strong><br>
+            B.Tech. in Computer Science and Engineering<br>
+            Amaravathi, India | August 2023 – May 2027 (Expected)<br>
+            Cumulative GPA: 8.58/10 (Till 3rd semester)
+          </p>
+          <p>
+            <strong>Sri Chaitanya Junior College</strong><br>
+            Class 12 (Intermediate) – MPC(PMC)<br>
+            Vijayawada, India | 2021 – 2023<br>
+            Scored: 95%
+          </p>
+          <p>
+            <strong>Keshava Reddy Residential School</strong><br>
+            Class 10 (Secondary School Certificate)<br>
+            Panyam, India | 2021<br>
+            Scored: 96%
+          </p>
+        </section>
+        <section>
+          <h2>Skills</h2>
+          <p><strong>Programming Languages:</strong> Proficient: C, C++ (OOPs); Familiar: Assembly (x86, ARM), Python</p>
+          <p><strong>Technologies / Tools:</strong> Familiar: Git, GCC, MATLAB</p>
+          <p><strong>Competencies:</strong> Data Structures, Problem-Solving, Logical Thinking, Programming Fundamentals</p>
+          <p><strong>Communication Languages:</strong> Telugu, English</p>
+        </section>
+        <section>
+          <h2>Projects</h2>
+          <p>
+            <strong>Train Ticket Reservation System:</strong><br>
+            Developed a system in C using Data Structures for efficient train ticket booking. The system includes features like ticket booking, cancellation, and seat availability tracking. It leverages queues and linked lists for real-time operations, ensuring smooth and user-friendly functionality.
+          </p>
+          <p>
+            <strong>Hostel Room Allocation System:</strong><br>
+            Designed a C++ application for managing hostel room allocations for students. It includes user authentication, hostel selection based on gender, room selection by year and type (AC/Non-AC), and payment processing. Room data is managed via text files for different hostels (Ganga, Vedhavathi, Narmadha, Godhavari, Krishna), ensuring efficient room management.
+          </p>
+        </section>
+        <section>
+          <h2>Hobbies &amp; Interests</h2>
+          <ul>
+            <li>Learning programming concepts</li>
+            <li>Exploring technology advancements</li>
+            <li>Playing cricket</li>
+            <li>Watching movies</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleMenu() {
+      let menu = document.getElementById("menu");
+      menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+    }
+    const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
+    let index = 0;
+    function changeWord() {
+      index = (index + 1) % words.length;
+      document.getElementById("changing-word").textContent = words[index];
+    }
+    setInterval(changeWord, 2000);
+    let currentPage = window.location.pathname.split("/").pop();
+    
+    currentPage = currentPage.replace(".html", "");
+    
+    if (currentPage) {
+      document.getElementById(currentPage).style.textDecoration = "underline";
+      document.getElementById(currentPage).style.color = "aqua";
+    }
+  </script>
+</body>
+</html>
