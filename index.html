@@ -5,6 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arella Praveen Kumar</title>
     <link rel="stylesheet" href="portfolio.css">
+    <style>
+        @media screen and (max-width: 767px) {
+            div[style*="background-color: rgba(0,0,0,0.6)"] {
+                margin-left: 10px !important;
+                margin-right: 10px !important;
+                margin-top: 20px !important;
+                height: auto !important;
+                padding: 10px !important;
+            }
+
+            #menu {
+                width: 100% !important;
+                height: auto !important;
+                display: none !important;
+                margin-top: 10px !important;
+            }
+
+            div[style*="margin-left: 1150px"] {
+                margin-left: 0 !important;
+                text-align: right !important;
+                padding-right: 10px !important;
+            }
+
+            .hello {
+                margin-top: 20px !important;
+                padding: 10px !important;
+            }
+
+            .hello h1 {
+                font-size: 24px !important;
+                text-align: center !important;
+            }
+
+            .hello h2 {
+                font-size: 18px !important;
+                text-align: center !important;
+            }
+
+            .Contacts {
+                flex-direction: column !important;
+                align-items: center !important;
+                padding: 10px !important;
+            }
+
+            .Contacts a {
+                margin: 5px 0 !important;
+                text-align: center !important;
+                display: block !important;
+            }
+
+            .discription p {
+                margin: 10px !important;
+                font-size: 16px !important;
+                text-align: justify !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hello h1 {
+                font-size: 20px !important;
+            }
+
+            .hello h2 {
+                font-size: 16px !important;
+            }
+
+            .Contacts a {
+                font-size: 14px !important;
+            }
+
+            .discription p {
+                font-size: 14px !important;
+            }
+        }
+    </style>
 </head>
 <body>
    <div style="background-color: rgba(0,0,0,0.6); position: relative; height: 650px; margin-left: 150px; margin-right: 150px; margin-top: 100px;">
@@ -12,7 +87,7 @@
       <div style="position: sticky;top: 10px;z-index: 1000;opacity: 1;">
       
       <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px;display: none;margin-top: 20px;">
-         <a href="home.html" target="_self" class="nav" style="left: 300px;" id="home">About</a>
+         <a href="index.html" target="_self" class="nav" style="left: 300px;" id="index">About</a>
          <a href="services.html" class="nav" style="left: 500px;" id="services">services</a>
          <a href="project.html" class="nav" style="left: 500px;" id="project">Projects</a>
          
@@ -59,28 +134,41 @@
    <script>
       function toggleMenu() {
           let menu = document.getElementById("menu");
-          menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+          if (menu.classList.contains('show')) {
+              menu.classList.remove('show');
+              menu.classList.add('hide');
+          } else {
+              menu.classList.remove('hide');
+              menu.classList.add('show');
+          }
       }
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+          let menu = document.getElementById("menu");
+          let icon = document.getElementById("icon");
+          if (!menu.contains(event.target) && !icon.contains(event.target)) {
+              menu.classList.remove('show');
+              menu.classList.add('hide');
+          }
+      });
+
       const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
-        let index = 0;
+      let index = 0;
 
-        function changeWord() {
-            index = (index + 1) % words.length;
-            document.getElementById("changing-word").textContent = words[index];
-        }
+      function changeWord() {
+          index = (index + 1) % words.length;
+          document.getElementById("changing-word").textContent = words[index];
+      }
 
-        setInterval(changeWord, 2000);
-        let currentPage = window.location.pathname.split("/").pop();
-
-    
-    currentPage = currentPage.replace(".html", "");
-
-    
-    if (currentPage) {
-        document.getElementById(currentPage).style.textDecoration = "underline";
-        document.getElementById(currentPage).style.color = "aqua"; 
-    }
-
+      setInterval(changeWord, 2000);
+      let currentPage = window.location.pathname.split("/").pop();
+      currentPage = currentPage.replace(".html", "");
+      
+      if (currentPage) {
+          document.getElementById(currentPage).style.textDecoration = "underline";
+          document.getElementById(currentPage).style.color = "aqua"; 
+      }
    </script>
 </body>
 </html>
