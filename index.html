@@ -6,169 +6,161 @@
     <title>Arella Praveen Kumar</title>
     <link rel="stylesheet" href="portfolio.css">
     <style>
-        @media screen and (max-width: 767px) {
-            div[style*="background-color: rgba(0,0,0,0.6)"] {
-                margin-left: 10px !important;
-                margin-right: 10px !important;
-                margin-top: 20px !important;
-                height: auto !important;
-                padding: 10px !important;
-            }
+        :root{ --glass: rgba(255,255,255,0.08); --border: rgba(255,255,255,0.12); --accent: #00ffff; --gold:#FFD700; }
+        body{ min-height:100vh; background: radial-gradient(1200px 800px at 10% 10%, rgba(0,255,255,0.12), transparent), radial-gradient(1200px 800px at 90% 20%, rgba(255,215,0,0.10), transparent), #0b0f1a; }
+        .bg-anim{ position: fixed; inset: 0; background: conic-gradient(from 180deg at 50% 50%, rgba(0,255,255,.06), rgba(255,215,0,.06), rgba(0,255,255,.06)); filter: blur(80px); opacity:.7; z-index:0; animation: spin 30s linear infinite; }
+        @keyframes spin{ to{ transform: rotate(1turn); } }
 
-            #menu {
-                width: 100% !important;
-                height: auto !important;
-                display: none !important;
-                margin-top: 10px !important;
-            }
+        .container{ position:relative; z-index:1; max-width: 1200px; margin: 0 auto; padding: 24px; }
+        .glass{ background: var(--glass); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(10px); }
 
-            div[style*="margin-left: 1150px"] {
-                margin-left: 0 !important;
-                text-align: right !important;
-                padding-right: 10px !important;
-            }
+        /* Nav */
+        .nav-wrap{ display:flex; align-items:center; justify-content:space-between; padding: 12px 16px; margin-top: 24px; }
+        .brand{ color:#fff; font-weight:700; letter-spacing:.5px; }
+        .brand span{ color: var(--gold); }
+        .menu-toggle{ width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--border); background:transparent; color:#fff; cursor:pointer; }
+        #menu{ display:none; margin-top: 12px; padding: 12px; text-align:center; }
+        #menu .nav{ display:inline-block; margin: 6px 10px; padding: 8px 12px; border-radius: 8px; color:#fff; text-decoration:none; border: 1px solid transparent; }
+        #menu .nav:hover{ border-color: rgba(0,255,255,.35); color: var(--accent); background: rgba(0,255,255,.06); }
 
-            .hello {
-                margin-top: 20px !important;
-                padding: 10px !important;
-            }
+        /* Hero */
+        .hero{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items:center; padding: 24px; margin-top: 18px; }
+        .hero-left{ padding: 18px; }
+        .kicker{ color: var(--accent); text-transform: uppercase; font-size: 12px; letter-spacing: 2px; }
+        .title{ color:#fff; font-size: 40px; line-height:1.15; margin: 8px 0 12px; }
+        .title span{ color: var(--gold); }
+        .subtitle{ color:#cfd8dc; font-size: 16px; line-height:1.7; }
+        .tags{ margin-top: 12px; display:flex; gap:10px; flex-wrap:wrap; }
+        .tag{ background:#162033; color:#cfe9ff; border:1px solid #203454; padding:6px 10px; border-radius: 999px; font-size:12px; }
+        .cta{ margin-top: 16px; display:flex; gap:10px; }
+        .btn{ padding:10px 14px; border-radius:10px; font-weight:600; cursor:pointer; border:1px solid transparent; }
+        .btn-primary{ background: var(--gold); color:#121212; }
+        .btn-ghost{ background: transparent; color: var(--accent); border-color: rgba(0,255,255,.35); }
+        .hero-right{ display:flex; align-items:center; justify-content:center; padding: 18px; }
+        .avatar{ width: 260px; height: 260px; border-radius: 30px; object-fit: cover; border:2px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
 
-            .hello h1 {
-                font-size: 24px !important;
-                text-align: center !important;
-            }
+        /* Featured */
+        .section-title{ color: var(--accent); text-transform: uppercase; letter-spacing:2px; text-align:center; margin: 24px 0 12px; }
+        .projects{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; padding: 18px; }
+        .card{ overflow:hidden; transition: transform .3s, box-shadow .3s, border-color .3s; }
+        .card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,.45); border-color: rgba(255,215,0,.35); }
+        .thumb{ width:100%; height: 160px; object-fit: cover; display:block; }
+        .card-body{ padding: 14px; }
+        .card-title{ color: var(--gold); margin: 0 0 6px; font-size: 18px; }
+        .card-desc{ color:#cfd8dc; font-size: 14px; line-height:1.6; }
+        .badges{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+        .badge{ display:inline-block; padding:4px 10px; border-radius:999px; font-size:12px; color:#fff; opacity:.95; }
+        .b1{ background:#1f3b73; } .b2{ background:#1b6b4b; } .b3{ background:#6b1b3c; }
 
-            .hello h2 {
-                font-size: 18px !important;
-                text-align: center !important;
-            }
-
-            .Contacts {
-                flex-direction: column !important;
-                align-items: center !important;
-                padding: 10px !important;
-            }
-
-            .Contacts a {
-                margin: 5px 0 !important;
-                text-align: center !important;
-                display: block !important;
-            }
-
-            .discription p {
-                margin: 10px !important;
-                font-size: 16px !important;
-                text-align: justify !important;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .hello h1 {
-                font-size: 20px !important;
-            }
-
-            .hello h2 {
-                font-size: 16px !important;
-            }
-
-            .Contacts a {
-                font-size: 14px !important;
-            }
-
-            .discription p {
-                font-size: 14px !important;
-            }
-        }
+        /* Responsive */
+        @media (max-width: 900px){ .hero{ grid-template-columns: 1fr; } .hero-right{ order:-1; } .title{ font-size: 32px; } }
+        @media (max-width: 600px){ .card-title{ font-size: 16px; } .thumb{ height: 150px; } }
     </style>
 </head>
 <body>
-   <div style="background-color: rgba(0,0,0,0.6); position: relative; height: 650px; margin-left: 150px; margin-right: 150px; margin-top: 100px;">
+    <div class="bg-anim"></div>
+    <div class="container">
+        <div class="glass nav-wrap">
+            <div class="brand">Arella <span>Praveen</span> Kumar</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+        <div id="menu" class="glass">
+            <a href="index.html" target="_self" class="nav" id="index">About</a>
+            <a href="Toolset.html" class="nav" id="Toolset">Toolset</a>
+            <a href="project.html" class="nav" id="project">Projects</a>
+            <a href="contact.html" class="nav" id="contact">Contact</a>
+        </div>
 
-      <div style="position: sticky;top: 10px;z-index: 1000;opacity: 1;">
-      
-      <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px;display: none;margin-top: 20px;">
-         <a href="index.html" target="_self" class="nav" style="left: 300px;" id="index">About</a>
-         <a href="services.html" class="nav" style="left: 500px;" id="services">services</a>
-         <a href="project.html" class="nav" style="left: 500px;" id="project">Projects</a>
-         
-         <a href="contact.html" class="nav" style="left: 700px;" id="contact">Contact</a>
-      </div>
-      
-      <div style="margin-left: 1150px;opacity: 1;">
-         <img id="icon" src="icon.jpg" onclick="toggleMenu()" style="cursor: pointer; margin-top: 20px;">
-     </div>
-   </div>
+        <div class="glass hero">
+            <div class="hero-left">
+                <div class="kicker">Hello Everyone 👋</div>
+                <h1 class="title">I'm <span>Praveen Arella</span><br> I am a <span id="changing-word">Web Developer</span></h1>
+                <p class="subtitle">Creative developer crafting interactive experiences and performant apps with smooth animations and clean UI.</p>
+                <div class="tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">React</span>
+                </div>
+                <div class="cta">
+                    <a href="project.html" class="btn btn-primary">View Projects</a>
+                    <a href="contact.html" class="btn btn-ghost">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <img src="pic1.jpg" class="avatar" alt="Praveen">
+            </div>
+        </div>
 
-      <img src="pic1.jpg" class="img1">
+        <h3 class="section-title">Featured Projects</h3>
+        <div class="projects">
+            <div class="glass card">
+                <img class="thumb" src="cpp_project_logo.png" alt="Hostel">
+                <div class="card-body">
+                    <div class="card-title">Hostel Registration (C++)</div>
+                    <div class="card-desc">C++ OOP app for student registrations and room assignments.</div>
+                    <div class="badges">
+                        <span class="badge b1">C++</span>
+                        <span class="badge b2">OOP</span>
+                        <span class="badge b3">File I/O</span>
+                    </div>
+                </div>
+            </div>
+            <div class="glass card">
+                <img class="thumb" src="study_sync.png" alt="StudySync">
+                <div class="card-body">
+                    <div class="card-title">StudySync (Django)</div>
+                    <div class="card-desc">Role‑based classroom platform with quizzes, attendance, and S3.</div>
+                    <div class="badges">
+                        <span class="badge b1">Django</span>
+                        <span class="badge b2">MySQL</span>
+                        <span class="badge b3">AWS S3</span>
+                    </div>
+                </div>
+            </div>
+            <div class="glass card">
+                <img class="thumb" src="migrant_mitra.png" alt="Migrant Mitra">
+                <div class="card-body">
+                    <div class="card-title">Migrant Mitra</div>
+                    <div class="card-desc">Node/Express job platform with JWT auth, Cloudinary, and Leaflet maps.</div>
+                    <div class="badges">
+                        <span class="badge b1">Node.js</span>
+                        <span class="badge b2">MongoDB</span>
+                        <span class="badge b3">Leaflet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      <div class="hello" style="position: relative;opacity: 1;">
-         <h2 style="color: white;position: relative;left: 10px;">Hello Everyone 👋</h2>
-         <h1 style="color: aliceblue;position: relative;left: 10px;">I'm Praveen Arella<br>
-            I am a <span id="changing-word" style="color: aqua;">Web Devoloper</span>
-         </h1>
-      </div>
-      <hr style="margin-top: 55px;color: gray;width: 65%;">
+    </div>
 
-      <div class="Contacts" style="display: flexbox;flex-direction: row;padding-top: 30px;">
-   
-         <a style="background: none;margin-left: 35px;text-decoration: none;color: rgb(255, 255, 255);font-size: 20px;">📅23-08-2005</a>
-         <a style="background: none;margin-left: 70px;text-decoration: none;color: rgb(255, 255, 255);font-size: 20px;" href="#">☎️Whatsapp</a>
-         <a style="background: none;margin-left: 20px;text-decoration: none;color: rgb(255, 255, 255);font-size: 20px;"  href="mailto:arellapraveen4@gmail.com" target="_blank">📧arellapraveen4@gmail.com</a>
-         <p><br></p><br>
-         <a  style="background: none;margin-left: 35px;text-decoration: none;color: rgb(255, 255, 255);font-size: 20px;">📍Hydreabad,India</a>
-         <a style="background: none;margin-left: 20px;text-decoration: none;color: rgb(255, 255, 255);font-size: 20px;">🎓B-tech(Computer Science and engineering)</a>
-      </div>
-     <br>
-      <div class="discription" style="margin-top: 40px;">
-         <p style="margin-left: 30px;margin-right: 30px;color:white;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: 20px;">I am a Creative Developer who builds interactive projects, including apps, VR experiences, and creative websites.
-
-            I am a Creative Developer who builds interactive apps, VR experiences, and websites. I focus on coding, learning new technologies, and creating high-quality digital designs. My work includes smooth animations and transitions to make websites and apps more engaging. I use advanced tools to build fully interactive and responsive solutions tailored to my clients' needs.</p>
-
-      </div>
-   
-
-   </div>
-
-  
-
-   <script>
-      function toggleMenu() {
-          let menu = document.getElementById("menu");
-          if (menu.classList.contains('show')) {
-              menu.classList.remove('show');
-              menu.classList.add('hide');
-          } else {
-              menu.classList.remove('hide');
-              menu.classList.add('show');
-          }
-      }
-
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-          let menu = document.getElementById("menu");
-          let icon = document.getElementById("icon");
-          if (!menu.contains(event.target) && !icon.contains(event.target)) {
-              menu.classList.remove('show');
-              menu.classList.add('hide');
-          }
-      });
-
-      const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
-      let index = 0;
-
-      function changeWord() {
-          index = (index + 1) % words.length;
-          document.getElementById("changing-word").textContent = words[index];
-      }
-
-      setInterval(changeWord, 2000);
-      let currentPage = window.location.pathname.split("/").pop();
-      currentPage = currentPage.replace(".html", "");
-      
-      if (currentPage) {
-          document.getElementById(currentPage).style.textDecoration = "underline";
-          document.getElementById(currentPage).style.color = "aqua"; 
-      }
-   </script>
+    <script>
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+                menu.classList.add('hide');
+                menu.style.display = 'none';
+            } else {
+                menu.classList.remove('hide');
+                menu.classList.add('show');
+                menu.style.display = 'block';
+            }
+        }
+        const words = ["Web Developer", "Full‑Stack Engineer", "Creative Coder", "Software Engineer"];
+        let index = 0;
+        function changeWord() {
+            index = (index + 1) % words.length;
+            document.getElementById("changing-word").textContent = words[index];
+        }
+        setInterval(changeWord, 2000);
+        let currentPage = window.location.pathname.split("/").pop();
+        currentPage = currentPage.replace(".html", "");
+        if (currentPage) {
+            const nav = document.getElementById(currentPage);
+            if(nav){ nav.style.textDecoration = "underline"; nav.style.color = "aqua"; }
+        }
+    </script>
 </body>
 </html>

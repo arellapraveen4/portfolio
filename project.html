@@ -5,195 +5,415 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arella Praveen Kumar</title>
     <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @media screen and (max-width: 767px) {
-            div[style*="background-color: rgba(0,0,0,0.6)"] {
-                margin-left: 10px !important;
-                margin-right: 10px !important;
-                margin-top: 20px !important;
-                height: auto !important;
-                padding: 10px !important;
-            }
+        :root{ --glass: rgba(255,255,255,0.08); --border: rgba(255,255,255,0.12); --accent: #00ffff; --gold:#FFD700; }
+        body{ min-height:100vh; background: radial-gradient(1200px 800px at 10% 10%, rgba(0,255,255,0.12), transparent), radial-gradient(1200px 800px at 90% 20%, rgba(255,215,0,0.10), transparent), #0b0f1a; }
+        .bg-anim{ position: fixed; inset: 0; background: conic-gradient(from 180deg at 50% 50%, rgba(0,255,255,.06), rgba(255,215,0,.06), rgba(0,255,255,.06)); filter: blur(80px); opacity:.7; z-index:0; animation: spin 30s linear infinite; }
+        @keyframes spin{ to{ transform: rotate(1turn); } }
 
-            #menu {
-                width: 100% !important;
-                height: auto !important;
-                display: none !important;
-                margin-top: 10px !important;
-            }
+        .container{ position:relative; z-index:1; max-width: 1200px; margin: 0 auto; padding: 24px; }
+        .glass{ background: var(--glass); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); backdrop-filter: blur(10px); }
 
-            div[style*="margin-left: 1150px"] {
-                margin-left: 0 !important;
-                text-align: right !important;
-                padding-right: 10px !important;
-            }
+        /* Nav */
+        .nav-wrap{ display:flex; align-items:center; justify-content:space-between; padding: 12px 16px; margin-top: 24px; }
+        .brand{ color:#fff; font-weight:700; letter-spacing:.5px; }
+        .brand span{ color: var(--gold); }
+        .menu-toggle{ width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--border); background:transparent; color:#fff; cursor:pointer; }
+        #menu{ display:none; margin-top: 12px; padding: 12px; text-align:center; }
+        #menu .nav{ display:inline-block; margin: 6px 10px; padding: 8px 12px; border-radius: 8px; color:#fff; text-decoration:none; border: 1px solid transparent; }
+        #menu .nav:hover{ border-color: rgba(0,255,255,.35); color: var(--accent); background: rgba(0,255,255,.06); }
 
-            .project-container {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 20px !important;
-                padding: 10px !important;
-            }
+        /* Hero */
+        .hero{ text-align:center; padding: 40px 24px; margin-top: 18px; }
+        .hero h1{ color: var(--accent); font-size: 2.5rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero p{ color: #cfd8dc; font-size: 1.1rem; }
 
-            .project-card {
-                width: 100% !important;
-                max-width: 300px !important;
-                margin: 10px 0 !important;
-            }
+        .projects-container { text-align: center; padding: 40px 20px; color: white; }
+        .projects-container h1 { color: aqua; font-size: 2.4rem; margin-bottom: 8px; text-transform: uppercase; }
+        .projects-subtitle { color: #b3e5e5; font-size: 0.95rem; opacity: 0.85; }
 
-            .project-card img {
-                width: 100% !important;
-                height: auto !important;
-            }
-
-            .project-card h3 {
-                font-size: 1.2rem !important;
-            }
-
-            .project-card p {
-                font-size: 0.9rem !important;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .project-card {
-                max-width: 250px !important;
-            }
-
-            .project-card h3 {
-                font-size: 1.1rem !important;
-            }
-
-            .project-card p {
-                font-size: 0.8rem !important;
-            }
-
-            h2 {
-                font-size: 1.5rem !important;
-            }
-        }
-        
-        .projects-container {
-            text-align: center;
-            padding: 50px 0;
-            color: white;
-        }
-        .projects-container h1 {
-            color: aqua;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
         .projects-grid {
-            display: flex;
-            flex-direction: column; 
-            align-items: center;
-            gap: 30px;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 28px;
         }
         .project-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            width: 80%; 
-            max-width: 600px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 14px;
             overflow: hidden;
-            height: 100%;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            animation: fadeInUp 0.8s ease-in-out;
+            box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+            transform: translateY(0);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
         }
         .project-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.45);
+            border-color: rgba(255,215,0,0.35);
         }
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .project-content {
-            padding: 15px;
-            text-align: left;
-        }
-        .project-title {
-            font-size: 1.5rem;
-            color: #FFD700;
-            margin-bottom: 10px;
-        }
-        .project-description {
-            font-size: 1rem;
-            color: #ddd;
-            line-height: 1.4;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .project-thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
+        .project-body { padding: 16px; text-align: left; }
+        .project-title { font-size: 1.25rem; color: #FFD700; margin: 0 0 8px; }
+        .project-desc { font-size: 0.95rem; color: #d5d5d5; line-height: 1.5; margin: 0 0 12px; }
+        .badge { display:inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; color:#fff; margin-right:6px; margin-bottom:6px; opacity:.95; }
+        .badge-blue { background:#1f3b73; }
+        .badge-green { background:#1b6b4b; }
+        .badge-pink { background:#6b1b3c; }
+        .card-actions { display:flex; gap:10px; align-items:center; }
+        .btn-primary { text-decoration:none; color:#121212; background:#FFD700; padding:8px 12px; border-radius:8px; font-weight:600; border:none; cursor:pointer; }
+        .btn-ghost { text-decoration:none; color:aqua; border:1px solid rgba(0,255,255,0.5); padding:8px 12px; border-radius:8px; background:transparent; cursor:pointer; }
+
+        /* Modal */
+        .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; padding: 20px; z-index: 2000; backdrop-filter: blur(8px); }
+        .modal { background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)); width:100%; max-width: 1000px; max-height: 90vh; overflow:auto; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); border:1px solid rgba(0,255,255,0.3); }
+        .modal-header { display:flex; justify-content: space-between; align-items:center; padding: 20px 24px; border-bottom: 1px solid rgba(0,255,255,0.2); background: linear-gradient(135deg, rgba(0,255,255,0.1), rgba(255,215,0,0.1)); border-radius: 20px 20px 0 0; }
+        .modal-title { margin:0; color:#FFD700; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .modal-close { background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size: 20px; cursor: pointer; padding: 8px; width: 40px; height: 40px; border-radius: 10px; transition: all 0.3s ease; }
+        .modal-close:hover { background: rgba(255,0,0,0.2); border-color: rgba(255,0,0,0.4); transform: scale(1.1); }
+        .modal-content { padding: 24px; color:#e5e7eb; }
+        
+        /* Project Info Cards */
+        .project-info{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+        .info-card{ background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; }
+        .info-card h3{ color: var(--accent); font-size: 1.1rem; margin: 0 0 8px 0; font-weight: 600; }
+        .info-card p{ color: #cfd8dc; margin: 0; line-height: 1.5; }
+        
+        /* Tech Stack */
+        .tech-stack{ margin-bottom: 24px; }
+        .tech-stack h3{ color: var(--accent); font-size: 1.2rem; margin: 0 0 12px 0; font-weight: 600; }
+        .tech-tags{ display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-tag{ background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(255,215,0,0.2)); border: 1px solid rgba(0,255,255,0.3); color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+        
+        /* Action Buttons */
+        .action-buttons{ display: flex; gap: 12px; margin-top: 20px; }
+        .btn{ padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-github{ background: linear-gradient(135deg, #333, #555); color: #fff; border: 1px solid #666; }
+        .btn-github:hover{ background: linear-gradient(135deg, #444, #666); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .btn-live{ background: linear-gradient(135deg, var(--accent), #00cccc); color: #000; border: 1px solid var(--accent); }
+        .btn-live:hover{ background: linear-gradient(135deg, #00cccc, var(--accent)); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,255,255,0.3); }
+        
+        /* Description */
+        .project-description{ margin-bottom: 24px; }
+        .project-description h3{ color: var(--accent); font-size: 1.2rem; margin: 0 0 12px 0; font-weight: 600; }
+        .project-description p{ color: #cfd8dc; line-height: 1.6; margin: 0; }
+        
+        /* Responsive */
+        @media (max-width: 768px){
+            .project-info{ grid-template-columns: 1fr; }
+            .action-buttons{ flex-direction: column; }
+            .modal{ width: 95%; margin: 5% auto; }
         }
     </style>
 </head>
 <body>
-    <div style="background-color: rgba(0,0,0,0.6); position: relative; height: auto; margin-left: 150px; margin-right: 150px; margin-top: 100px; padding-bottom: 50px;">
- 
-       <div style="position: sticky; top: 10px; z-index: 1000; opacity: 1;">
-          
-           <div id="menu" style="background-color: #001F3F; width: 1150px; height: 40px; float: left; border-radius: 20px; display: none; margin-top: 20px;">
-               <a href="index.html" target="_self" class="nav" style="left: 300px;" id="index">About</a>
-               <a href="services.html" class="nav" style="left: 500px;" id="services">services</a>
-               <a href="project.html" class="nav" style="left: 500px;" id="project">Projects</a>
-               <a href="contact.html" class="nav" style="left: 700px;" id="contact">Contact</a>
-           </div>
-          
-           <div style="margin-left: 1150px; opacity: 1;">
-               <img id="icon" src="icon.jpg" onclick="toggleMenu()" style="cursor: pointer; margin-top: 20px;">
-           </div>
-       </div>
- 
-       <div class="projects-container">
-           <h1>Projects</h1>
-           <br>
+    <div class="bg-anim"></div>
+    <div class="container">
+        <div class="glass nav-wrap">
+            <div class="brand">Arella <span>Praveen</span> Kumar</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+        <div id="menu" class="glass">
+            <a href="index.html" target="_self" class="nav" id="index">About</a>
+            <a href="Toolset.html" class="nav" id="Toolset">Toolset</a>
+            <a href="project.html" class="nav" id="project">Projects</a>
+            <a href="contact.html" class="nav" id="contact">Contact</a>
+        </div>
+
+        <div class="glass hero">
+            <h1>Projects</h1>
+            <p>Selected works showcasing systems, UI, and full‑stack development.</p>
+        </div>
+
+        <div class="glass projects-container">
            <div class="projects-grid">
-               
+               <!-- Hostel Registration System (C++ OOP) -->
                <div class="project-card">
-                   <img src="hostel.png" alt="Hostel Room Registration" style="height: 100%;">
-                   <div class="project-content">
-                       <h2 class="project-title">Hostel Room Registration</h2>
-                       <p class="project-description">
-                           A C++ project for hostel booking with user authentication, room selection, and OTP verification.<br><br>
-                           <strong>Technologies:</strong> C++, File I/O, OOP<br>
-                           <strong>Key Features:</strong> Secure OTP, Real-time room availability.
-                       </p>
+                   <div style="position:relative; cursor:pointer;" onclick="openModal('hostel')">
+                       <img class="project-thumb" src="cpp_project_logo.png" alt="Hostel Registration System">
+                       <span style="position:absolute; bottom:10px; left:10px; background: rgba(0,0,0,0.6); color:#FFD700; padding:6px 10px; border-radius: 6px; font-weight:600;">C++ OOP</span>
+                   </div>
+                   <div class="project-body">
+                       <h3 class="project-title">Hostel Registration System</h3>
+                       <p class="project-desc">C++ application managing student registrations and room assignments with persistent storage (TXT/CSV).</p>
+                       <div>
+                           <span class="badge badge-blue">C++</span>
+                           <span class="badge badge-green">OOP</span>
+                           <span class="badge badge-pink">File I/O</span>
+                       </div>
+                       <div class="card-actions" style="margin-top: 12px;">
+                           <button class="btn-primary" onclick="openModal('hostel')">Quick View</button>
+                           <!--<a class="btn-ghost" href="#" onclick="openModal('hostel'); return false;">Details</a>-->
+                       </div>
                    </div>
                </div>
-               <br>
- 
-               
+
+               <!-- StudySync (Django + MySQL) -->
                <div class="project-card">
-                   <img src="webdevelopment.png" alt="Website Registration System" style="height: 100%;">
-                   <div class="project-content">
-                       <h2 class="project-title">Website Registration System</h2>
-                       <p class="project-description">
-                           Built a user registration system using MySQL, HTML, and PHP, storing data securely in a database.<br><br>
-                           <strong>Technologies:</strong> PHP, MySQL, HTML/CSS<br>
-                           <strong>Key Features:</strong> Responsive design, secure data handling.
-                       </p>
+                   <div style="position:relative; cursor:pointer;" onclick="openModal('studysync')">
+                       <img class="project-thumb" src="study_sync.png" alt="StudySync Platform">
+                       <span style="position:absolute; bottom:10px; left:10px; background: rgba(0,0,0,0.6); color:#FFD700; padding:6px 10px; border-radius: 6px; font-weight:600;">Django + MySQL</span>
+                   </div>
+                   <div class="project-body">
+                       <h3 class="project-title">StudySync</h3>
+                       <p class="project-desc">Full‑stack platform with role‑based dashboards, classrooms, quizzes, attendance, and AWS S3 media.</p>
+                       <div>
+                           <span class="badge badge-blue">Django</span>
+                           <span class="badge badge-green">MySQL</span>
+                           <span class="badge badge-pink">AWS S3</span>
+                       </div>
+                       <div class="card-actions" style="margin-top: 12px;">
+                           <button class="btn-primary" onclick="openModal('studysync')">Quick View</button>
+                           <!--<a class="btn-ghost" href="#" onclick="openModal('studysync'); return false;">Details</a>-->
+                       </div>
                    </div>
                </div>
-               <br>
- 
-               
+
+               <!-- Migrant Mitra (Node.js + Express + MongoDB) -->
                <div class="project-card">
-                   <img src="train.png" alt="Train Ticket Reservation System" style="height: 100%;">
-                   <div class="project-content">
-                       <h2 class="project-title">Train Ticket Reservation</h2>
-                       <p class="project-description">
-                           Developed in C, this system handles ticket bookings, cancellations, and real-time seat availability tracking.<br><br>
-                           <strong>Technologies:</strong> C, Data Structures, File Handling<br>
-                           <strong>Key Features:</strong> Efficient booking, dynamic seat tracking.
-                       </p>
+                   <div style="position:relative; cursor:pointer;" onclick="openModal('migrant')">
+                       <img class="project-thumb" src="migrant_mitra.png" alt="Migrant Mitra - Job Platform for Migrants">
+                       <span style="position:absolute; bottom:10px; left:10px; background: rgba(0,0,0,0.6); color:#FFD700; padding:6px 10px; border-radius: 6px; font-weight:600;">Node.js + MongoDB</span>
+                   </div>
+                   <div class="project-body">
+                       <h3 class="project-title">Migrant Mitra</h3>
+                       <p class="project-desc">Full‑stack job platform connecting migrants with employers, featuring secure JWT auth and Cloudinary uploads.</p>
+                       <div>
+                           <span class="badge badge-blue">Node.js</span>
+                           <span class="badge badge-green">Express</span>
+                           <span class="badge badge-pink">MongoDB</span>
+                           <span class="badge badge-blue">JWT</span>
+                           <span class="badge badge-green">Cloudinary</span>
+                           <span class="badge badge-pink">Leaflet.js</span>
+                       </div>
+                       <div class="card-actions" style="margin-top: 12px;">
+                           <button class="btn-primary" onclick="openModal('migrant')">Quick View</button>
+                           <!--<a class="btn-ghost" href="#" onclick="openModal('migrant'); return false;">Details</a>-->
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Telecom Churn Prediction (Python + XGBoost) -->
+               <div class="project-card">
+                   <div style="position:relative; cursor:pointer;" onclick="openModal('telecom')">
+                       <img class="project-thumb" src="telecom.png" alt="Telecom Churn Prediction">
+                       <span style="position:absolute; bottom:10px; left:10px; background: rgba(0,0,0,0.6); color:#FFD700; padding:6px 10px; border-radius: 6px; font-weight:600;">Python + XGBoost</span>
+                   </div>
+                   <div class="project-body">
+                       <h3 class="project-title">Telecom Churn Prediction</h3>
+                       <p class="project-desc">Notebook pipeline for churn prediction with EDA, feature engineering, and XGBoost classification.</p>
+                       <div>
+                           <span class="badge badge-blue">Python</span>
+                           <span class="badge badge-green">scikit‑learn</span>
+                           <span class="badge badge-pink">XGBoost</span>
+                           <span class="badge badge-blue">Pandas</span>
+                           <span class="badge badge-green">Seaborn</span>
+                       </div>
+                       <div class="card-actions" style="margin-top: 12px;">
+                           <button class="btn-primary" onclick="openModal('telecom')">Quick View</button>
+                           <!--<a class="btn-ghost" href="#" onclick="openModal('telecom'); return false;">Details</a>-->
+                       </div>
                    </div>
                </div>
            </div>
        </div>
  
+       <!-- Modal: Hostel -->
+       <div id="modal-hostel" class="modal-backdrop">
+           <div class="modal">
+               <div class="modal-header">
+                   <h3 class="modal-title">Hostel Registration System (C++ OOP)</h3>
+                   <button type="button" class="modal-close" onclick="closeModal('hostel')">✕</button>
+               </div>
+               <div class="modal-content">
+                   <div class="project-info">
+                       <div class="info-card">
+                           <h3>📅 Duration</h3>
+                           <p>3 months</p>
+                       </div>
+                       <div class="info-card">
+                           <h3>👥 Team Size</h3>
+                           <p>Solo Project</p>
+                       </div>
+                   </div>
+
+                   <div class="project-description">
+                       <h3>📝 Description</h3>
+                       <p>A comprehensive Hostel Registration System built with C++ using Object-Oriented Programming principles. The system manages student registrations, room assignments across 5 different hostels (Ganga, Godhavari, Krishna, Narmadha, Vedhavathi), and provides data persistence using text and CSV files.</p>
+                   </div>
+
+                   <div class="tech-stack">
+                       <h3>🛠️ Tech Stack</h3>
+                       <div class="tech-tags">
+                           <span class="tech-tag">C++</span>
+                           <span class="tech-tag">OOP</span>
+                           <span class="tech-tag">File I/O</span>
+                           <span class="tech-tag">CSV Processing</span>
+                           <span class="tech-tag">Data Structures</span>
+                           <span class="tech-tag">Console UI</span>
+                       </div>
+                   </div>
+
+                   <div class="action-buttons">
+                       <a href="https://github.com/arellapraveen4/Hostel_Room_Registration_Oop_cpp" target="_blank" class="btn btn-github">
+                           <i class="fab fa-github"></i> View Code
+                       </a>
+                       <a href="#" class="btn btn-live">
+                           <i class="fas fa-external-link-alt"></i> Live Demo
+                       </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Modal: StudySync -->
+       <div id="modal-studysync" class="modal-backdrop">
+           <div class="modal">
+               <div class="modal-header">
+                   <h3 class="modal-title">StudySync (Django + MySQL)</h3>
+                   <button type="button" class="modal-close" onclick="closeModal('studysync')">✕</button>
+               </div>
+               <div class="modal-content">
+                   <div class="project-info">
+                       <div class="info-card">
+                           <h3>📅 Duration</h3>
+                           <p>6 months</p>
+                       </div>
+                       <div class="info-card">
+                           <h3>👥 Team Size</h3>
+                           <p>Team Project</p>
+                       </div>
+                   </div>
+
+                   <div class="project-description">
+                       <h3>📝 Description</h3>
+                       <p>StudySync is a comprehensive full-stack Django-based educational platform that manages academic activities for students, teachers, and administrators. It provides classroom management, quizzes, assignments, attendance tracking, and scheduling with dedicated role-based interfaces and AWS S3 integration for file storage.</p>
+                   </div>
+
+                   <div class="tech-stack">
+                       <h3>🛠️ Tech Stack</h3>
+                       <div class="tech-tags">
+                           <span class="tech-tag">Django</span>
+                           <span class="tech-tag">MySQL</span>
+                           <span class="tech-tag">HTML/CSS</span>
+                           <span class="tech-tag">JavaScript</span>
+                           <span class="tech-tag">Bootstrap</span>
+                           <span class="tech-tag">AWS S3</span>
+                           <span class="tech-tag">JWT Auth</span>
+                       </div>
+                   </div>
+
+                   <div class="action-buttons">
+                       <a href="https://github.com/arellapraveen4/Study-Sync" target="_blank" class="btn btn-github">
+                           <i class="fab fa-github"></i> View Code
+                       </a>
+                       <a href="#" class="btn btn-live">
+                           <i class="fas fa-external-link-alt"></i> Live Demo
+                       </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Modal: Migrant Mitra -->
+       <div id="modal-migrant" class="modal-backdrop">
+           <div class="modal">
+               <div class="modal-header">
+                   <h3 class="modal-title">Migrant Mitra - Job Platform for Migrants</h3>
+                   <button type="button" class="modal-close" onclick="closeModal('migrant')">✕</button>
+               </div>
+               <div class="modal-content">
+                   <div class="project-info">
+                       <div class="info-card">
+                           <h3>📅 Duration</h3>
+                           <p>4 months</p>
+                       </div>
+                       <div class="info-card">
+                           <h3>👥 Team Size</h3>
+                           <p>Solo Project</p>
+                       </div>
+                   </div>
+
+                   <div class="project-description">
+                       <h3>📝 Description</h3>
+                       <p>Migrant Mitra is a full-stack web application that connects skilled migrants with job opportunities. It features dual authentication for workers and employers, profile management with Cloudinary uploads, job categorization, and interactive maps using Leaflet.js for location-based job matching.</p>
+                   </div>
+
+                   <div class="tech-stack">
+                       <h3>🛠️ Tech Stack</h3>
+                       <div class="tech-tags">
+                           <span class="tech-tag">Node.js</span>
+                           <span class="tech-tag">Express.js</span>
+                           <span class="tech-tag">MongoDB</span>
+                           <span class="tech-tag">JWT</span>
+                           <span class="tech-tag">Cloudinary</span>
+                           <span class="tech-tag">Leaflet.js</span>
+                           <span class="tech-tag">bcryptjs</span>
+                       </div>
+                   </div>
+
+                   <div class="action-buttons">
+                       <a href="https://github.com/arellapraveen4/migrant-mitra" target="_blank" class="btn btn-github">
+                           <i class="fab fa-github"></i> View Code
+                       </a>
+                       <a href="https://migrant-mitra.onrender.com/" target="_blank" class="btn btn-live">
+                           <i class="fas fa-external-link-alt"></i> Live Demo
+                       </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Modal: Telecom Churn Prediction -->
+       <div id="modal-telecom" class="modal-backdrop">
+           <div class="modal">
+               <div class="modal-header">
+                   <h3 class="modal-title">Telecom Churn Prediction</h3>
+                   <button type="button" class="modal-close" onclick="closeModal('telecom')">✕</button>
+               </div>
+               <div class="modal-content">
+                   <div class="project-info">
+                       <div class="info-card">
+                           <h3>📅 Duration</h3>
+                           <p>2 months</p>
+                       </div>
+                       <div class="info-card">
+                           <h3>👥 Team Size</h3>
+                           <p>Solo Project</p>
+                       </div>
+                   </div>
+
+                   <div class="project-description">
+                       <h3>📝 Description</h3>
+                       <p>A comprehensive machine learning project that analyzes telecom customer data to predict customer churn using advanced ML techniques. The project includes data cleaning, exploratory data analysis with visualizations, feature engineering, and model building with XGBoost for accurate churn prediction.</p>
+                   </div>
+
+                   <div class="tech-stack">
+                       <h3>🛠️ Tech Stack</h3>
+                       <div class="tech-tags">
+                           <span class="tech-tag">Python</span>
+                           <span class="tech-tag">XGBoost</span>
+                           <span class="tech-tag">pandas</span>
+                           <span class="tech-tag">scikit-learn</span>
+                           <span class="tech-tag">matplotlib</span>
+                           <span class="tech-tag">seaborn</span>
+                           <span class="tech-tag">Jupyter</span>
+                       </div>
+                   </div>
+
+                   <div class="action-buttons">
+                       <a href="https://github.com/arellapraveen4/telecom-churn-prediction" target="_blank" class="btn btn-github">
+                           <i class="fab fa-github"></i> View Code
+                       </a>
+                       <a href="#" class="btn btn-live">
+                           <i class="fas fa-external-link-alt"></i> Live Demo
+                       </a>
+                   </div>
+               </div>
+           </div>
+        </div>
     </div>
  
     <script>
@@ -208,6 +428,21 @@
            }
        }
 
+       function openModal(key){
+           const el = document.getElementById(`modal-${key}`);
+           if(el){ el.style.display = 'flex'; }
+       }
+       function closeModal(key){
+           const el = document.getElementById(`modal-${key}`);
+           if(el){ el.style.display = 'none'; }
+       }
+
+       // Close when clicking any backdrop
+       document.addEventListener('click', function(e){
+           const backdrops = document.querySelectorAll('.modal-backdrop');
+           backdrops.forEach(function(bd){ if(e.target === bd){ bd.style.display = 'none'; } });
+       });
+
        // Close menu when clicking outside
        document.addEventListener('click', function(event) {
            let menu = document.getElementById("menu");
@@ -220,16 +455,13 @@
 
        const words = ["Web Developer", "Gamer", "Hacker", "Software Engineer"];
        let index = 0;
-       function changeWord() {
-           index = (index + 1) % words.length;
-           document.getElementById("changing-word").textContent = words[index];
-       }
+       function changeWord() { index = (index + 1) % words.length; const el = document.getElementById("changing-word"); if(el) el.textContent = words[index]; }
        setInterval(changeWord, 2000);
        let currentPage = window.location.pathname.split("/").pop();
        currentPage = currentPage.replace(".html", "");
        if (currentPage) {
-           document.getElementById(currentPage).style.textDecoration = "underline";
-           document.getElementById(currentPage).style.color = "aqua";
+           const nav = document.getElementById(currentPage);
+           if(nav){ nav.style.textDecoration = "underline"; nav.style.color = "aqua"; }
        }
     </script>
 </body>
